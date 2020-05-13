@@ -12,7 +12,6 @@ import com.longdo.mjpegviewer.MjpegView;
 public class MainActivity extends AppCompatActivity {
 
     private MjpegView view1;
-    private MjpegView view2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         //view.setAdjustWidth(true);
         view1.setMode(MjpegView.MODE_FIT_WIDTH);
         //view.setMsecWaitAfterReadImageError(1000);
-        view1.setUrl("");
-        view1.setToken("");
+        view1.setUrl("https://office.hubsai.com:9002/api/services/camera_proxy_stream/camera_02");
+        view1.setToken("92b957c78bec4150badab344d8ab3e1a");
         view1.setRecycleBitmap(true);
     }
 
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         view1.stopStream();
-        view2.stopStream();
         super.onPause();
     }
 
@@ -67,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         view1.stopStream();
-        view2.stopStream();
         super.onStop();
     }
 }
