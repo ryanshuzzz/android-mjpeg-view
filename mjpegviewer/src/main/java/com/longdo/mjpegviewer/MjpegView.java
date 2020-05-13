@@ -324,7 +324,7 @@ public class MjpegView extends View{
                     serverUrl = new URL(url);
 
                     connection = (HttpURLConnection) serverUrl.openConnection();
-                    if (token != null){ connection.setRequestProperty("Authorization", "Token ");}
+                    if (token != null){ connection.setRequestProperty("Authorization", "Token " + token);}
                     connection.setDoInput(true);
                     connection.connect();
 
