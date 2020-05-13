@@ -24,21 +24,13 @@ public class MainActivity extends AppCompatActivity {
         //view.setAdjustWidth(true);
         view1.setMode(MjpegView.MODE_FIT_WIDTH);
         //view.setMsecWaitAfterReadImageError(1000);
-        view1.setUrl("https://bma-itic1.iticfoundation.org/mjpeg2.php?camid=61.91.182.114:1111");
+        view1.setUrl("https://office.hubsai.com:9002/api/services/camera_proxy_stream/camera_02");
         view1.setRecycleBitmap(true);
-
-        view2 = findViewById(R.id.mjpegview2);
-        view2.setAdjustHeight(true);
-        //view.setAdjustWidth(true);
-        view2.setMode(MjpegView.MODE_FIT_WIDTH);
-        //view.setMsecWaitAfterReadImageError(1000);
-        view2.setUrl("https://bma-itic1.iticfoundation.org/mjpeg2.php?camid=61.91.182.114:1112");
     }
 
     @Override
     protected void onResume() {
         view1.startStream();
-        view2.startStream();
         super.onResume();
     }
 

@@ -35,6 +35,7 @@ public class MjpegView extends View{
 
     private Context context;
     private String url;
+    private String token;
     private Bitmap lastBitmap;
     private MjpegDownloader downloader;
     private final Object lockBitmap = new Object();
@@ -72,6 +73,9 @@ public class MjpegView extends View{
 
     public void setUrl(String url){
         this.url = url;
+    }
+    public void setToken(String token){
+        this.token = token;
     }
 
     public void startStream(){
@@ -320,6 +324,7 @@ public class MjpegView extends View{
                     serverUrl = new URL(url);
 
                     connection = (HttpURLConnection) serverUrl.openConnection();
+                    if (token != null){ connection.setRequestProperty("Authorization", "Token ");}
                     connection.setDoInput(true);
                     connection.connect();
 
